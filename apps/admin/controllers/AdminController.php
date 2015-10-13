@@ -15,6 +15,11 @@ class AdminController extends ControllerBase
     {
         $this->tag->prependTitle("管理员账户管理 - ");
         $this->persistent->parameters = null;
+        
+        return $this->dispatcher->forward(array(
+            "controller" => "admin",
+            "action" => "search"
+        ));
     }
 
     /**
@@ -25,7 +30,7 @@ class AdminController extends ControllerBase
 
         $numberPage = 1;
         if ($this->request->isPost()) {
-            $query = Criteria::fromInput($this->di, "Admin", $_POST);
+            $query = Criteria::fromInput($this->di, "\\News\\Admin\\Models\\Admin", $_POST);
             $this->persistent->parameters = $query->getParams();
         } else {
             $numberPage = $this->request->getQuery("page", "int");
@@ -37,7 +42,7 @@ class AdminController extends ControllerBase
         }
         $parameters["order"] = "id";
 
-        $admin = Admin::find($parameters);
+        $admin = \News\Admin\Models\Admin::find($parameters);
         if (count($admin) == 0) {
             $this->flash->notice("The search did not find any admin");
 
@@ -74,7 +79,7 @@ class AdminController extends ControllerBase
 
         if (!$this->request->isPost()) {
 
-            $admin = Admin::findFirstByid($id);
+            $admin = \News\Admin\Models\Admin::findFirstByid($id);
             if (!$admin) {
                 $this->flash->error("admin was not found");
 
@@ -152,7 +157,7 @@ class AdminController extends ControllerBase
 
         $id = $this->request->getPost("id");
 
-        $admin = Admin::findFirstByid($id);
+        $admin = \News\Admin\Models\Admin::findFirstByid($id);
         if (!$admin) {
             $this->flash->error("admin does not exist " . $id);
 
@@ -198,9 +203,9 @@ class AdminController extends ControllerBase
     public function deleteAction($id)
     {
 
-        $admin = Admin::findFirstByid($id);
+        $admin = \News\Admin\Models\Admin::findFirstByid($id);
         if (!$admin) {
-            $this->flash->error("admin was not found");
+            $this->flash->error("此账号不存在！");
 
             return $this->dispatcher->forward(array(
                 "controller" => "admin",
@@ -220,7 +225,7 @@ class AdminController extends ControllerBase
             ));
         }
 
-        $this->flash->success("admin was deleted successfully");
+        $this->flash->success("账号删除成功！");
 
         return $this->dispatcher->forward(array(
             "controller" => "admin",

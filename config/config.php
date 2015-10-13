@@ -6,7 +6,7 @@ return new \Phalcon\Config(array(
         'host'     => 'localhost',
         'username' => 'root',
         'password' => '',
-        'dbname'   => 'bs-news',
+        'dbname'   => 'donews',
         'charset'  => 'utf8',
     ),
     'application' => array(
