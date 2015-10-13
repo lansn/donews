@@ -1,0 +1,54 @@
+<?php use Phalcon\Tag; ?>
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array("admin/admin/index", "Go Back")); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array("admin/admin/new", "Create ")); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="browse" align="center">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>User Of Name</th>
+            <th>Name</th>
+            <th>Password</th>
+            <th>Email</th>
+         </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($page->items as $admin) { ?>
+        <tr>
+            <td><?php echo $admin->id ?></td>
+            <td><?php echo $admin->user_name ?></td>
+            <td><?php echo $admin->name ?></td>
+            <td><?php echo $admin->password ?></td>
+            <td><?php echo $admin->email ?></td>
+            <td><?php echo $this->tag->linkTo(array("admin/admin/edit/" . $admin->id, "Edit")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("admin/admin/delete/" . $admin->id, "Delete")); ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+    <tbody>
+        <tr>
+            <td colspan="2" align="right">
+                <table align="center">
+                    <tr>
+                        <td><?php echo $this->tag->linkTo("admin/admin/search", "First") ?></td>
+                        <td><?php echo $this->tag->linkTo("admin/admin/search?page=" . $page->before, "Previous") ?></td>
+                        <td><?php echo $this->tag->linkTo("admin/admin/search?page=" . $page->next, "Next") ?></td>
+                        <td><?php echo $this->tag->linkTo("admin/admin/search?page=" . $page->last, "Last") ?></td>
+                        <td><?php echo $page->current, "/", $page->total_pages ?></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
