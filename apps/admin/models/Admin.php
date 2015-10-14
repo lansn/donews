@@ -38,6 +38,12 @@ class Admin extends \Phalcon\Mvc\Model
     public $email;
 
     /**
+     *
+     * @var integer
+     */
+    public $group;
+
+    /**
      * Validations and business logic
      *
      * @return boolean

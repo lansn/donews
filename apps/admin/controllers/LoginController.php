@@ -3,6 +3,7 @@
 namespace News\Admin\Controllers;
 
 use Phalcon\Mvc\Controller;
+use Phalcon\Http\Response;
 
 class LoginController extends Controller
 {
@@ -14,18 +15,47 @@ class LoginController extends Controller
 
     public function indexAction()
     {
-        $this->tag->prependTitle("登陆 - ");
+        $this->tag->prependTitle("管理员登陆 - ");
     }
 
     public function authAction()
     {
-        
+        if ($this->request->isPost()) {
+
+            $email = $this->request->getPost('email');
+            $password = $this->request->getPost('password');
+
+            $user = \News\Admin\Models\Admin::findFirst(array(
+                "(email = :email: OR user_name = :email:) AND password = :password: ",
+                'bind' => array('email' => $email, 'password' => sha1( md5($password) ))
+            )); 
+            if ($user != false) {
+
+                 $this->session->set('auth', array(
+                        'id' => $user->id,
+                        'user_name' => $user->user_name,
+                        'true_name' => $user->name,
+                        'group' => $user->group
+                    ));
+
+                $this->response->redirect("admin/index");
+            } else {
+                $this->flash->error('Wrong email/password');
+            }
+
+        }
+
+        return $this->dispatcher->forward(array(
+                "controller" => "login",
+                "action" => "index"
+        ));
     }
 
     public function exitAction()
     {
-
-       return $this->dispatcher->forward(array(
+        $this->session->destroy();
+        
+        return $this->dispatcher->forward(array(
             "controller" => "login",
             "action" => "index"
         ));  

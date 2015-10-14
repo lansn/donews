@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2015 年 10 月 13 日 14:26
+-- 生成日期: 2015 年 10 月 14 日 08:48
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.16
 
@@ -34,16 +34,18 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `name` varchar(20) NOT NULL,
   `password` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
+  `group` int(1) NOT NULL DEFAULT '1' COMMENT '0超级管理, 1普通管理',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `admin`
 --
 
-INSERT INTO `admin` (`id`, `user_name`, `name`, `password`, `email`) VALUES
-(1, 'admin', 'admin77', '1234', '173654757@qq.com'),
-(2, 'xadmin', 'xadmin', '1234', 'xadmin@122.com');
+INSERT INTO `admin` (`id`, `user_name`, `name`, `password`, `email`, `group`) VALUES
+(1, 'admin', 'admin7700992222', '63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1', '173654757@qq.com', 0),
+(2, 'xadmin', 'xadmin', '63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1', 'xadmin@122.com', 1),
+(3, 'blues', 'lansn-lan', '1234', 'lansn-lan@uecsh.com', 0);
 
 -- --------------------------------------------------------
 

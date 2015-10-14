@@ -2,3 +2,21 @@
 body {
     font-family: Arial;
 }
+.errorMessage{
+    border:1px solid #AC5848;
+    padding: 15px;    
+    color: #B33A3A;
+    background-color: #F7C7B3;
+    -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+}
+.successMessage{
+    border:1px solid #477F01;
+    padding: 15px;    
+    color: #363A37;
+    background-color: #66C46B;
+    -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+}

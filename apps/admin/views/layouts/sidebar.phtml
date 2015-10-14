@@ -1,7 +1,7 @@
     <div class="list-group text-center">
         <a href="#" class="list-group-item disabled">系统设置</a>
-        <a href="#" class="list-group-item">网站基本参数</a>
-        <a href="#" class="list-group-item">账户安全管理</a>
+        <?php echo $this->tag->linkTo(array("admin/app", "网站基本参数", "class" => "list-group-item")) ?>
+        <?php echo $this->tag->linkTo(array("admin/admin", "账户安全管理", "class" => "list-group-item")) ?>
         <a href="#" class="list-group-item disabled">网站内容管理</a>
         <a href="#" class="list-group-item">栏目管理</a>
         <a href="#" class="list-group-item">文章列表</a>
