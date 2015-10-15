@@ -8,9 +8,9 @@
                 <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-user"></i> <?=$this->session->get('auth')['true_name']?> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><?php echo $this->tag->linkTo(array("admin/admin/edit/".$this->session->get('auth')['id'], "资料修改")) ?></li>
+                        <li><?php echo $this->tag->linkTo(array("admin/admin/edit/".$this->session->get('auth')['id'], '<i class="glyphicon glyphicon-briefcase"></i> 资料修改')) ?></li>
                         <li role="separator" class="divider"></li>
-                        <li><?php echo $this->tag->linkTo(array("admin/login/exit", "退出系统")) ?></li>
+                        <li><?php echo $this->tag->linkTo(array("admin/login/exit", '<i class="glyphicon glyphicon-off"></i> 退出系统')) ?></li>
                     </ul>
                 </li>
             </ul>

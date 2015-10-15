@@ -1,0 +1,58 @@
+<?php use Phalcon\Tag; ?>
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array("admin/article/index", "Go Back")); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array("admin/article/new", "Create ")); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="table table-hover" align="center">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>栏目</th>
+            <th>标题</th>
+            <th>发布者</th>
+            <th>作者</th>
+            <th>来源</th>
+            <th>关键词</th>
+            <th>时间</th>
+            <th>修改</th>
+            <th>删除</th>
+         </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($page->items as $article) { ?>
+        <tr>
+            <td><?php echo $article->id ?></td>
+            <td><?php echo \News\Admin\Models\Classis::findFirst("id = $article->cid")->name ?></td>
+            <td><?php echo $article->title ?></td>
+            <td><?php echo \News\Admin\Models\Admin::findFirst("id = $article->uid")->name ?></td>
+            <td><?php echo $article->author ?></td>
+            <td><?php echo $article->origin ?></td>
+            <td><?php echo $article->keywords ?></td>
+            <td><?php echo $article->datetime ?></td>
+            <td><?php echo $this->tag->linkTo(array("admin/article/edit/" . $article->id, "Edit")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("admin/article/delete/" . $article->id, "Delete")); ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
+<nav>
+    <ul class="pagination">
+        <li title="首页"><?php echo $this->tag->linkTo("admin/article/search", "&laquo;") ?></li>
+        <li title="前一页"><?php echo $this->tag->linkTo("admin/article/search?page=" . $page->before, "&lsaquo;") ?></li>
+        <li title="后一页"><?php echo $this->tag->linkTo("admin/article/search?page=" . $page->next, "&rsaquo;") ?></li>
+        <li title="末页"><?php echo $this->tag->linkTo("admin/article/search?page=" . $page->last, "&raquo;") ?></li>
+        <li><a href="#"><?php echo $page->current, " / ", $page->total_pages ?></a></li>
+        <li><?php echo $this->tag->linkTo(array("admin/article/index", "返回", "class" => "btn btn-info btn-sm")); ?></li>
+        <li><?php echo $this->tag->linkTo(array("admin/article/new", "创建 ", "class" => "btn btn-success btn-sm")); ?></li>
+    </ul>
+</nav>

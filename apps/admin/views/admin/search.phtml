@@ -1,12 +1,11 @@
 <?php use Phalcon\Tag; ?>
 
-<?php echo $this->getContent(); ?>
-
 <ol class="breadcrumb">
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Library</a></li>
-  <li class="active">Data</li>
+  <li><?php echo $this->tag->linkTo(array("admin/index", '<i class="glyphicon glyphicon-home"></i> 后台首页 ')); ?></li>
+  <li class="active">管理员账号列表</li>
 </ol>
+
+<?php echo $this->getContent(); ?>
 
 <table class="table table-hover" align="center">
     <thead>
@@ -35,16 +34,7 @@
     <?php } ?>
     </tbody>
 </table>
-<table width="100%">
-    <tr>
-        <td align="left">
-            <?php echo $this->tag->linkTo(array("admin/admin/index", "Go Back")); ?>
-        </td>
-        <td align="right">
-            <?php echo $this->tag->linkTo(array("admin/admin/new", "Create ")); ?>
-        </td>
-    </tr>
-</table>
+
 <nav>
     <ul class="pagination">
         <li title="首页"><?php echo $this->tag->linkTo("admin/admin/search", "&laquo;") ?></li>
@@ -52,5 +42,7 @@
         <li title="后一页"><?php echo $this->tag->linkTo("admin/admin/search?page=" . $page->next, "&rsaquo;") ?></li>
         <li title="末页"><?php echo $this->tag->linkTo("admin/admin/search?page=" . $page->last, "&raquo;") ?></li>
         <li><a href="#"><?php echo $page->current, " / ", $page->total_pages ?></a></li>
+        <li><?php echo $this->tag->linkTo(array("admin/admin/index", "返回", "class" => "btn btn-info btn-sm")); ?></li>
+        <li><?php echo $this->tag->linkTo(array("admin/admin/new", "创建 ", "class" => "btn btn-success btn-sm")); ?></li>
     </ul>
 </nav>

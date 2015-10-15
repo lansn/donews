@@ -1,7 +1,10 @@
 @charset "utf-8";
 body {
     font-family: Arial;
+    font-size: 13px;
 }
+li{font-size: 13px;}
+#sidebar .disabled {color: #2763A2;}
 .errorMessage{
     border:1px solid #AC5848;
     padding: 15px;    
@@ -16,6 +19,15 @@ body {
     padding: 15px;    
     color: #363A37;
     background-color: #66C46B;
+    -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+}
+.noticeMessage{
+    border:1px solid #88E4DB;
+    padding: 15px;    
+    color: #363A37;
+    background-color: #B4F5EF;
     -moz-border-radius: 5px;      /* Gecko browsers */
     -webkit-border-radius: 5px;   /* Webkit browsers */
     border-radius:5px;            /* W3C syntax */

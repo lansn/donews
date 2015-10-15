@@ -23,7 +23,8 @@ class Module implements ModuleDefinitionInterface
 
         $loader->registerNamespaces(array(
             'News\Home\Controllers' => __DIR__ . '/controllers/',
-            'News\Home\Models' => __DIR__ . '/models/',
+            //'News\Home\Models' => __DIR__ . '/models/',
+            'News\Admin\Models' => dirname(__DIR__) . '/admin/models/',  // 共用后台管理模型，不想共用请把上面一行注释取消掉，在注释本行
         ));
 
         $loader->register();
@@ -55,7 +56,7 @@ class Module implements ModuleDefinitionInterface
          * Database connection is created based in the parameters defined in the configuration file
          */
         $di['db'] = function () use ($config) {
-            return new DbAdapter($config->toArray());
+            return new DbAdapter($config->database->toArray());
         };
     }
 }

@@ -1,0 +1,57 @@
+
+<?php echo $this->getContent(); ?>
+
+<?php echo $this->tag->form("admin/friendly_link/save") ?>
+
+<table width="100%">
+    <tr>
+        <td align="left"><?php echo $this->tag->linkTo(array("admin/friendly_link", "Back")) ?></td>
+        <td align="right"><?php echo $this->tag->submitButton("Save") ?></td>
+    </tr>
+</table>
+
+<div align="center">
+    <h1>Edit friendly_link</h1>
+</div>
+
+<table>
+    <tr>
+        <td align="right">
+            <label for="name">Name</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("name", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="url">Url</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("url", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="description">Description</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->textField(array("description", "size" => 30)) ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <label for="status">Status</label>
+        </td>
+        <td align="left">
+            <?php echo $this->tag->select(array("status",  array("0" => "已审核", "1" => "未审核"))) ?>
+        </td>
+    </tr>
+
+    <tr>
+        <td><?php echo $this->tag->hiddenField("id") ?></td>
+        <td><?php echo $this->tag->submitButton("Save") ?></td>
+    </tr>
+</table>
+
+</form>

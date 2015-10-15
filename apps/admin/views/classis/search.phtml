@@ -1,0 +1,52 @@
+<?php use Phalcon\Tag; ?>
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array("admin/classis/index", "Go Back")); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array("admin/classis/new", "Create ")); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="table table-hover" align="center">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Keywords</th>
+            <th>Description</th>
+            <th>Sort</th>
+            <th>编辑</th>
+            <th>删除</th>
+         </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($page->items as $classi) { ?>
+        <tr>
+            <td><?php echo $classi->id ?></td>
+            <td><?php echo $classi->name ?></td>
+            <td><?php echo $classi->keywords ?></td>
+            <td><?php echo $classi->description ?></td>
+            <td><?php echo $classi->sort ?></td>
+            <td><?php echo $this->tag->linkTo(array("admin/classis/edit/" . $classi->id, "Edit")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("admin/classis/delete/" . $classi->id, "Delete")); ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
+<nav>
+    <ul class="pagination">
+        <li title="首页"><?php echo $this->tag->linkTo("admin/classis/search", "&laquo;") ?></li>
+        <li title="前一页"><?php echo $this->tag->linkTo("admin/classis/search?page=" . $page->before, "&lsaquo;") ?></li>
+        <li title="后一页"><?php echo $this->tag->linkTo("admin/classis/search?page=" . $page->next, "&rsaquo;") ?></li>
+        <li title="末页"><?php echo $this->tag->linkTo("admin/classis/search?page=" . $page->last, "&raquo;") ?></li>
+        <li><a href="#"><?php echo $page->current, " / ", $page->total_pages ?></a></li>
+        <li><?php echo $this->tag->linkTo(array("admin/classis/index", "返回", "class" => "btn btn-info btn-sm")); ?></li>
+        <li><?php echo $this->tag->linkTo(array("admin/classis/new", "创建 ", "class" => "btn btn-success btn-sm")); ?></li>
+    </ul>
+</nav>

@@ -1,0 +1,55 @@
+<?php use Phalcon\Tag; ?>
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array("admin/friendly_link/index", "Go Back")); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array("admin/friendly_link/new", "Create ")); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="table table-hover" align="center">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>站点名</th>
+            <th>链接</th>
+            <th>描述</th>
+            <th>是否审核</th>
+            <th>审核</th>
+            <th>修改</th>
+            <th>删除</th>
+         </tr>
+    </thead>
+    <tbody>
+    <?php $status = array( 0 => '<span style="color:green;">已审核</span>', 1 =>'<span style="color:red;">未审核</span>');?>
+    <?php foreach ($page->items as $friendly_link) { ?>
+        <tr>
+            <td><?php echo $friendly_link->id ?></td>
+            <td><?php echo $friendly_link->name ?></td>
+            <td><a href="<?= $friendly_link->url ?>" target ="_blank"><?=$friendly_link->url?></a></td>
+            <td><?php echo $friendly_link->description ?></td>
+            <td><?php echo $status[$friendly_link->status] ?></td>
+            <td><?php echo $this->tag->linkTo(array("admin/friendly_link/approve/" . $friendly_link->id, "Approve")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("admin/friendly_link/edit/" . $friendly_link->id, "Edit")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("admin/friendly_link/delete/" . $friendly_link->id, "Delete")); ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
+<nav>
+    <ul class="pagination">
+        <li title="首页"><?php echo $this->tag->linkTo("admin/friendly_link/search", "&laquo;") ?></li>
+        <li title="前一页"><?php echo $this->tag->linkTo("admin/friendly_link/search?page=" . $page->before, "&lsaquo;") ?></li>
+        <li title="后一页"><?php echo $this->tag->linkTo("admin/friendly_link/search?page=" . $page->next, "&rsaquo;") ?></li>
+        <li title="末页"><?php echo $this->tag->linkTo("admin/friendly_link/search?page=" . $page->last, "&raquo;") ?></li>
+        <li><a href="#"><?php echo $page->current, " / ", $page->total_pages ?></a></li>
+        <li><?php echo $this->tag->linkTo(array("admin/friendly_link/index", "返回", "class" => "btn btn-info btn-sm")); ?></li>
+        <li><?php echo $this->tag->linkTo(array("admin/friendly_link/new", "创建 ", "class" => "btn btn-success btn-sm")); ?></li>
+    </ul>
+</nav>
