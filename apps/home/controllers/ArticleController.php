@@ -22,23 +22,9 @@ class ArticleController extends ControllerBase
      */
     public function searchAction()
     {
-        $this->tag->prependTitle("查询结果 - ");
-
         $numberPage = 1;
-        if ($this->request->isPost()) {
-            $query = Criteria::fromInput($this->di, "\\News\\Admin\\Models\\Article", $_POST);
-            $this->persistent->parameters = $query->getParams();
-        } else {
-            $numberPage = $this->request->getQuery("page", "int");
-        }
 
-        $parameters = $this->persistent->parameters;
-        if (!is_array($parameters)) {
-            $parameters = array();
-        }
-        $parameters["order"] = "id desc";
-
-        $article = \News\Admin\Models\Article::find($parameters);
+        $article = \News\Admin\Models\Article::find();
         if (count($article) == 0) {
             $this->flash->notice("The search did not find any article");
 
@@ -50,11 +36,14 @@ class ArticleController extends ControllerBase
 
         $paginator = new Paginator(array(
             "data" => $article,
-            "limit"=> 30,
+            "limit"=> 20,
             "page" => $numberPage
         ));
 
         $this->view->page = $paginator->getPaginate();
+
+        $this->tag->prependTitle("第 ".$paginator->getPaginate()->current." 页 - ");
+        
     }
 
     /**

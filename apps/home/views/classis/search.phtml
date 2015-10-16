@@ -1,0 +1,11 @@
+
+
+<nav>
+    <ul class="pagination">
+        <li title="首页"><?php echo $this->tag->linkTo("classis/search/".$classis_id, "&laquo;") ?></li>
+        <li title="前一页"><?php echo $this->tag->linkTo("classis/search/".$classis_id."?page=" . $page->before, "&lsaquo;") ?></li>
+        <li title="后一页"><?php echo $this->tag->linkTo("classis/search/".$classis_id."?page=" . $page->next, "&rsaquo;") ?></li>
+        <li title="末页"><?php echo $this->tag->linkTo("classis/search/".$classis_id."?page=" . $page->last, "&raquo;") ?></li>
+        <li><a href="#"><?php echo $page->current, " / ", $page->total_pages ?></a></li>
+    </ul>
+</nav>

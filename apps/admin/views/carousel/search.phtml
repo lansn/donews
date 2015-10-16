@@ -1,0 +1,55 @@
+<?php use Phalcon\Tag; ?>
+
+<?php echo $this->getContent(); ?>
+
+<table width="100%">
+    <tr>
+        <td align="left">
+            <?php echo $this->tag->linkTo(array("admin/carousel/index", "Go Back")); ?>
+        </td>
+        <td align="right">
+            <?php echo $this->tag->linkTo(array("admin/carousel/new", "Create ")); ?>
+        </td>
+    </tr>
+</table>
+
+<table class="table table-hover" align="center" id="carousel">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Url</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Active</th>
+            <th>修改</th>
+            <th>删除</th>
+         </tr>
+    </thead>
+    <tbody>
+    <?php $status = array( 0 => '<span style="color:green;">已开启</span>', 1 =>'<span style="color:red;">未开启</span>');?>
+    <?php foreach ($page->items as $carousel) { ?>
+        <tr>
+            <td><?php echo $carousel->id ?></td>
+            <td><?php echo $carousel->title ?></td>
+            <td><a href="<?= $carousel->url ?>" target="_blank">链接地址</a></td>
+            <td><img src="<?= $carousel->image ?>" width="50"></td>
+            <td><?php echo $carousel->description ?></td>
+            <td><?php echo $status[$carousel->active] ?></td>
+            <td><?php echo $this->tag->linkTo(array("admin/carousel/edit/" . $carousel->id, "Edit")); ?></td>
+            <td><?php echo $this->tag->linkTo(array("admin/carousel/delete/" . $carousel->id, "Delete")); ?></td>
+        </tr>
+    <?php } ?>
+    </tbody>
+</table>
+<nav>
+    <ul class="pagination">
+        <li title="首页"><?php echo $this->tag->linkTo("admin/carousel/search", "&laquo;") ?></li>
+        <li title="前一页"><?php echo $this->tag->linkTo("admin/carousel/search?page=" . $page->before, "&lsaquo;") ?></li>
+        <li title="后一页"><?php echo $this->tag->linkTo("admin/carousel/search?page=" . $page->next, "&rsaquo;") ?></li>
+        <li title="末页"><?php echo $this->tag->linkTo("admin/carousel/search?page=" . $page->last, "&raquo;") ?></li>
+        <li><a href="#"><?php echo $page->current, " / ", $page->total_pages ?></a></li>
+        <li><?php echo $this->tag->linkTo(array("admin/carousel/index", "返回", "class" => "btn btn-info btn-sm")); ?></li>
+        <li><?php echo $this->tag->linkTo(array("admin/carousel/new", "创建 ", "class" => "btn btn-success btn-sm")); ?></li>
+    </ul>
+</nav>

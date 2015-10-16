@@ -1,0 +1,10 @@
+@charset "utf-8";
+body {
+    font-family: Arial;
+    font-size: 13px;
+}
+.logo {padding-top: 8px;}
+#carousel-inner .item img{margin: 0 auto;max-height: 360px;}
+#carousel-inner .item{background-color: #81BEF7;}
+.thumbnail{height: 350px;}
+.thumbnail img{height: 175px; width: 100%; display: block;}

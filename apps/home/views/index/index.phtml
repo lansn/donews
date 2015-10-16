@@ -1,7 +1,74 @@
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+    <?php for ($i=0; $i < count($carousel); $i++) { ?>
+        <?php if ($i == 1): ?>
+            <li data-target="#carousel-example-generic" data-slide-to="<?=$i?>" class="active"></li>
+        <?php else: ?>
+            <li data-target="#carousel-example-generic" data-slide-to="<?=$i?>" class=""></li>
+        <?php endif ?>
+    <?php } ?>
+    </ol>
+
+    <div class="carousel-inner" role="listbox" id="carousel-inner">
+    <?php $i = 0;?>
+    <?php foreach ($carousel as $ads): ?>
+        <?php if ($i == 1): ?>
+        <div class="item active">
+        <?php else: ?>
+        <div class="item">
+        <?php endif ?>
+            <a href="<?=$ads->url?>" target="_blank"><img alt="<?=$ads->title?>" src="<?=$ads->image?>" data-holder-rendered="true"></a>
+        </div>
+        <?php $i++;?>
+    <?php endforeach ?>
+    </div>
+
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">上一张</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">下一张</span>
+    </a>
+</div>
+
 <div class="page-header">
     <h1>Congratulations!</h1>
 </div>
 
-<p>You're now flying with Phalcon. Great things are about to happen!</p>
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img data-src="holder.js/100%x200" alt="100%x200" src="" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+            <div class="caption">
+                <h3></h3>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+    </div>
+<?php foreach ($page->items as $val): ?>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img data-src="" alt="" src="" data-holder-rendered="true">
+            <div class="caption">
+                <h3><?=$val->title?></h3>
+                <p></p>
+                <p></p>
+            </div>
+        </div>
+    </div>       
+<?php endforeach ?>
 
-<em>This page is located at views/index/index.phtml</em>
+
+</div>
+<nav class="text-center">
+    <ul class="pagination">
+        <li title="首页"><?php echo $this->tag->linkTo("article/search", "首页") ?></li>
+        <li title="前一页"><?php echo $this->tag->linkTo("article/search?page=" . $page->before, "前一页") ?></li>
+        <li title="后一页"><?php echo $this->tag->linkTo("article/search?page=" . $page->next, "后一页") ?></li>
+        <li title="末页"><?php echo $this->tag->linkTo("article/search?page=" . $page->last, "末页") ?></li>
+        <li><a href="#"><?php echo $page->current, " / ", $page->total_pages ?></a></li>
+    </ul>
+</nav>

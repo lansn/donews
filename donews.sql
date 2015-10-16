@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2015 年 10 月 15 日 08:54
+-- 生成日期: 2015 年 10 月 16 日 08:52
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.16
 
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `article` (
   `datetime` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `cid` (`cid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `article`
@@ -100,7 +100,34 @@ CREATE TABLE IF NOT EXISTS `article` (
 
 INSERT INTO `article` (`id`, `uid`, `cid`, `title`, `author`, `origin`, `keywords`, `content`, `datetime`) VALUES
 (1, 2, 2, 'ddd方芳芳0011ddd方芳芳0011ddd方芳芳0011', '的订单', '顶顶顶顶', '的顶顶顶顶顶', '嘎嘎嘎个大概', '2015-10-15 05:40:41'),
-(2, 2, 1, '戴尔XPS 13极致轻薄本：看外观就知道是高级货', 'ddd', 'ggg', '', 'gdgdg', '2015-10-15 07:43:18');
+(2, 2, 1, '戴尔XPS 13极致轻薄本：看外观就知道是高级货', 'ddd', 'ggg', '', 'gdgdg', '2015-10-15 07:43:18'),
+(3, 1, 2, 'GE Bright Stik LED将是市场上一个实力超强的00', '的订单', '顶顶顶顶', 'dddddccc000', 'tr发反反复复', '2015-10-16 08:23:37'),
+(4, 1, 1, '三温三控 经典简约外观 超低能耗 超静音 变温', 'ddd', '顶顶顶顶', 'yyyyyyyyyy', '顶顶顶顶顶顶顶顶嘎嘎嘎', '2015-10-16 08:23:52');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `carousel`
+--
+
+CREATE TABLE IF NOT EXISTS `carousel` (
+  `id` int(2) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(150) NOT NULL,
+  `url` varchar(300) NOT NULL,
+  `image` varchar(300) NOT NULL,
+  `description` varchar(225) NOT NULL,
+  `active` int(1) NOT NULL DEFAULT '0' COMMENT '0开启 1关闭',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- 转存表中的数据 `carousel`
+--
+
+INSERT INTO `carousel` (`id`, `title`, `url`, `image`, `description`, `active`) VALUES
+(1, '戴尔XPS 13极致轻薄本：看外观就知道是高级货', 'http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3DBhWuTwrAtV26k0Or%252B%252BH4tDTgQlypV7Zh9mB9m9lG9F2LltG5xFicOdXrTUTgh9sMDPIwxrc30ri4oBBMRS20lxzzeu30eZoHN0bXXYwz9Rjq%252BWZjlgnMe23abJM7sDg2egp3J%252FBUACb921JvDirTew%253D%253D%26ptype%3D100010', 'http://img.alicdn.com/bao/uploaded/i4/TB19TIiHpXXXXaBaXXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg', '淡淡的', 0),
+(2, '三温三控 经典简约外观 超低能耗 超静音 变温', 'http://redirect.simba.taobao.com/rd?w=unionnojs&f=http%3A%2F%2Fai.taobao.com%2Fauction%2Fedetail.htm%3Fe%3DJBWBCWz653i6k0Or%252B%252BH4tK8%252FC2t2ZAnnVBTWeYSeIzSLltG5xFicOdXrTUTgh9sMDPIwxrc30ri4oBBMRS20lxzzeu30eZoHN0bXXYwz9Rjq%252BWZjlgnMe23abJM7sDg2dfT7UBN0mY%252B0pO667zeHfw%253D%253D%26ptype%3D10', 'http://img.alicdn.com/imgextra/i2/2181764844/TB2Ai.kcpXXXXbuXXXXXXXXXXXX_!!2181764844.jpg_430x430q90.jpg', '娱乐新闻', 0),
+(3, 'GE Bright Stik LED将是市场上一个实力超强的00', 'http://t107.temp.ly200.net/download', 'https://img.alicdn.com/tps/i1/TB138oPJVXXXXagXpXXYLzSHXXX-990-360.png', '淡淡的', 0);
 
 -- --------------------------------------------------------
 

@@ -14,8 +14,14 @@ class ControllerBase extends Controller
             $this->response->redirect("admin/login");
         }
 
-        // 设置网站后台管理 顶部显示值 <title> </title>
-        $this->tag->setTitle(\News\Admin\Models\App::findFirst()->name);
+        // 获取站点基本设置
+        $app = \News\Admin\Models\App::findFirst();
+
+        // 设置传递给视图使用
+        $this->view->app = $app;
+
+        // 设置标题
+        $this->tag->setTitle($app->name);
 
         // 设置视图模板
         $this->view->setTemplateAfter('navigate');

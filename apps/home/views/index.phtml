@@ -9,8 +9,10 @@
     <?php echo $this->tag->getTitle(); ?>
 </head>
 <body>
+<div class="container">
     <?php $this->partial("layouts/navigate"); ?>
     <?php echo $this->getContent(); ?>
     <?php $this->partial("layouts/footer"); ?>
+</div>
 </body>
 </html>

@@ -4,6 +4,8 @@ body {
     font-size: 13px;
 }
 li{font-size: 13px;}
+textarea{widows: 100%;}
+#carousel td{vertical-align: middle;}
 #sidebar .disabled {color: #2763A2;}
 .errorMessage{
     border:1px solid #AC5848;
