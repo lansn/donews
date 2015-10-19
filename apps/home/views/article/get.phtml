@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-md-9">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="text-center"><h1><?= $article->title ?></h1></div>
+                <div class="text-center"><span>作者：<?= $article->author ?></span> <span>来源：<?= $article->origin ?></span> <span>日期：<?= $article->datetime ?></span></div>
+                <div class="content">
+                    <?= $article->content ?>
+                </div>
+                <div class="comment">
+                <?php foreach ($comment as $val): ?>
+                    <div class="media">
+                        <div class="media-left">
+                            <a href="#">
+                                <?= $this->tag->image(array("images/face/".rand(0,9).".jpg", 'class' => 'media-object', 'alt' => $val->author)) ?>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading"><?=$val->author?></h4>
+                            <?=$val->content?>
+                        </div>
+                    </div>                    
+                <?php endforeach ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <?php $this->partial("layouts/sidebar"); ?>
+    </div>
+</div>

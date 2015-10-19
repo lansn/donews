@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2015 年 10 月 16 日 08:52
+-- 生成日期: 2015 年 10 月 19 日 08:53
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.16
 
@@ -102,7 +102,7 @@ INSERT INTO `article` (`id`, `uid`, `cid`, `title`, `author`, `origin`, `keyword
 (1, 2, 2, 'ddd方芳芳0011ddd方芳芳0011ddd方芳芳0011', '的订单', '顶顶顶顶', '的顶顶顶顶顶', '嘎嘎嘎个大概', '2015-10-15 05:40:41'),
 (2, 2, 1, '戴尔XPS 13极致轻薄本：看外观就知道是高级货', 'ddd', 'ggg', '', 'gdgdg', '2015-10-15 07:43:18'),
 (3, 1, 2, 'GE Bright Stik LED将是市场上一个实力超强的00', '的订单', '顶顶顶顶', 'dddddccc000', 'tr发反反复复', '2015-10-16 08:23:37'),
-(4, 1, 1, '三温三控 经典简约外观 超低能耗 超静音 变温', 'ddd', '顶顶顶顶', 'yyyyyyyyyy', '顶顶顶顶顶顶顶顶嘎嘎嘎', '2015-10-16 08:23:52');
+(4, 1, 1, '三温三控 经典简约外观 超低能耗 超静音 变温', 'ddd', '顶顶顶顶', 'yyyyyyyyyy', '顶顶顶顶顶顶顶顶嘎嘎嘎<img src="http://i.guancha.cn/news/2015/10/18/20151018093740194.jpg" alt="习主席访英前夕刘大使再战英国记者 一个个套化解得神赞！">', '2015-10-19 03:17:33');
 
 -- --------------------------------------------------------
 
@@ -166,14 +166,15 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `datetime` datetime NOT NULL,
   `status` int(1) NOT NULL DEFAULT '1' COMMENT '0已审核 1未审核',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `comment`
 --
 
 INSERT INTO `comment` (`id`, `aid`, `author`, `content`, `datetime`, `status`) VALUES
-(1, 1, '烦烦烦', '', '2015-10-15 05:11:12', 1);
+(1, 1, '烦烦烦', '功高盖世规定和供货商和欢呼声', '2015-10-15 05:11:12', 1),
+(2, 1, '呃呃呃', '工单嘎嘎嘎嘎嘎', '2015-10-14 05:15:22', 0);
 
 -- --------------------------------------------------------
 

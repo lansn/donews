@@ -51,34 +51,26 @@ class ArticleController extends ControllerBase
      *
      * @param string $id
      */
-    public function editAction($id)
+    public function getAction($id)
     {
-        $this->tag->prependTitle("文章修改 - ");
+        $article = \News\Admin\Models\Article::findFirstByid($id);
 
-        if (!$this->request->isPost()) {
+        if (!$article) {
+            $this->flash->error("article was not found");
 
-            $article = \News\Admin\Models\Article::findFirstByid($id);
-            if (!$article) {
-                $this->flash->error("article was not found");
-
-                return $this->dispatcher->forward(array(
-                    "controller" => "article",
-                    "action" => "index"
-                ));
-            }
-
-            $this->view->id = $article->id;
-
-            $this->tag->setDefault("id", $article->id);
-            $this->tag->setDefault("cid", $article->cid);
-            $this->tag->setDefault("title", $article->title);
-            $this->tag->setDefault("author", $article->author);
-            $this->tag->setDefault("origin", $article->origin);
-            $this->tag->setDefault("keywords", $article->keywords);
-            $this->tag->setDefault("content", $article->content);
-            //$this->tag->setDefault("datetime", $article->datetime);
-            
+            return $this->dispatcher->forward(array(
+                "controller" => "error",
+                "action" => "_404"
+            ));
         }
+
+        $this->view->article = $article;
+        $this->view->classis_id = $article->cid;
+
+        $this->view->comment = \News\Admin\Models\Comment::find("aid = $id AND status = 0");
+
+        $this->tag->prependTitle($article->title." - ");   
+        
     }
 
 

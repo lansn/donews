@@ -26,4 +26,5 @@ class ControllerBase extends Controller
         // 获取广告轮播
         $this->view->carousel = \News\Admin\Models\Carousel::find();
     }
+
 }

@@ -27,6 +27,13 @@ class Module implements ModuleDefinitionInterface
             'News\Admin\Models' => dirname(__DIR__) . '/admin/models/',  // 共用后台管理模型，不想共用请把上面一行注释取消掉，在注释本行
         ));
 
+        // 注册自加载类 Register some classes
+        $loader->registerClasses(
+            array(
+                "GetImage" => __DIR__ . "/library/GetImage.php",
+            )
+        );
+
         $loader->register();
     }
 

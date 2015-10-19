@@ -22,14 +22,17 @@ class ClassisController extends ControllerBase
      */
     public function searchAction($id)
     {
-        $this->tag->prependTitle(\News\Admin\Models\Classis::findFirstByid($id)->name." - ");
+        $classis_name = \News\Admin\Models\Classis::findFirstByid($id)->name;
 
+        $this->tag->prependTitle($classis_name." - ");
+
+        $this->view->classis_name = $classis_name;
         $this->view->classis_id = $id;
 
         $numberPage = 1;
-        $classis = \News\Admin\Models\Article::find(array('cid' => $id));
-        if (count($classis) == 0) {
-            $this->flash->notice("The search did not find any classis");
+        $article = \News\Admin\Models\Article::find("cid = $id");
+        if (count($article) == 0) {
+            $this->flash->notice("The search did not find any article");
 
             return $this->dispatcher->forward(array(
                 "controller" => "classis",
@@ -38,7 +41,7 @@ class ClassisController extends ControllerBase
         }
 
         $paginator = new Paginator(array(
-            "data" => $classis,
+            "data" => $article,
             "limit"=> 20,
             "page" => $numberPage
         ));
