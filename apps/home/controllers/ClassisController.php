@@ -30,7 +30,7 @@ class ClassisController extends ControllerBase
         $this->view->classis_id = $id;
 
         $numberPage = 1;
-        $article = \News\Admin\Models\Article::find("cid = $id");
+        $article = \News\Admin\Models\Article::find(array("cid = $id", "order"=>"id desc"));
         if (count($article) == 0) {
             $this->flash->notice("The search did not find any article");
 

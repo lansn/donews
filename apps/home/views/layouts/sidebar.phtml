@@ -1,19 +1,23 @@
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">最新发布</h3>
+            <h3 class="panel-title"><i class="glyphicon glyphicon-flash"></i> 最新发布</h3>
         </div>
         <div class="panel-body">
-            <ul>
-                <li>dd</li>
+            <ul class="top-ten">
+            <?php foreach ($top_ten as $val): ?>
+                <li><?= $this->tag->linkTo(array('article/get/'.$val->id, $val->title))?></li>
+            <?php endforeach ?>
             </ul>
         </div>
     </div>
 
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h3 class="panel-title">合作赞助</h3>
+            <h3 class="panel-title"><i class="glyphicon glyphicon-grain"></i> 合作赞助</h3>
         </div>
         <div class="panel-body">
-
+            <a href="http://s.click.taobao.com/t?e=m%3D2%26s%3DqBh9p6b%2FlTYcQipKwQzePCperVdZeJviEViQ0P1Vf2kguMN8XjClAoQchiJgQa%2FtWYiHaNonGrVB7gtFFd%2BYp3C27tfA5EP9V%2BzlRSxzw6aWXoGHaDaxxedn1BbglxZYxUhy8exlzcq9AmARIwX9K%2BnbtOD3UdznPV1H2z0iQv9NkKVMHClW0QbMqOpFMIvnvjQXzzpXdTHGJe8N%2FwNpGw%3D%3D" target="_blank">
+                <img src="http://img.alicdn.com/tps/i3/TB1BfraIXXXXXbLaXXXzksAQpXX-300-100.gif" width="180px">
+            </a>
         </div>
     </div>

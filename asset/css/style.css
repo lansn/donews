@@ -10,5 +10,20 @@ body {
 .thumbnail img{height: 175px; width: 100%; display: block;}
 .thumbnail h3{font-size: 16px;font-family: Microsoft Yahei;font-weight: bold;}
 h1{font-family: Microsoft Yahei;font-size: 22px;}
+h4{font-family: Microsoft Yahei;font-size: 14px;font-weight: bold;color: #337ab7;}
 .content{margin-top: 10px;margin-bottom: 10px;}
+.media{border-top: 1px dotted #DDDDDF;padding-top: 10px;}
+
 .media-object{width: 64px;}
+.top-ten{margin-left: -30px;}
+.successMessage{
+    border:1px solid #477F01;
+    padding: 15px;    
+    color: #363A37;
+    background-color: #66C46B;
+    -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+    margin: 15px 0 15px 0;
+}
+.comment-date{float: right;font-weight: normal;font-size: 12px;color: gray;}

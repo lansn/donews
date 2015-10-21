@@ -4,13 +4,13 @@
 <?php echo $this->tag->form(array("admin/comment/search", "autocomplete" => "off")) ?>
 
 <div align="center">
-    <h1>Search comment</h1>
+    <h1>Search Comment</h1>
 </div>
 
-<table>
+<table class="table">
     <tr>
         <td align="right">
-            <label for="id">Id</label>
+            <label for="id">ID</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("id", "type" => "number")) ?>
@@ -18,7 +18,7 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="aid">Aid</label>
+            <label for="aid">文章ID</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("aid", "type" => "number")) ?>
@@ -26,7 +26,7 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="author">Author</label>
+            <label for="author">作者</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("author", "size" => 30)) ?>
@@ -34,7 +34,7 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="datetime">Datetime</label>
+            <label for="datetime">日期</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("datetime", "size" => 30)) ?>
@@ -42,7 +42,7 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="status">Status</label>
+            <label for="status">状态</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("status", "type" => "number")) ?>

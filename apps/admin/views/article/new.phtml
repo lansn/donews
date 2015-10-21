@@ -11,13 +11,13 @@
 <?php echo $this->getContent(); ?>
 
 <div align="center">
-    <h1>Create article</h1>
+    <h1>Create Article</h1>
 </div>
 
-<table>
+<table class="table">
     <tr>
         <td align="right">
-            <label for="cid">Cid</label>
+            <label for="cid">栏目</label>
         </td>
         <td align="left">
             <?php echo $this->tag->select(array("cid", \News\Admin\Models\Classis::find(),"using" => array("id", "name"))) ?>
@@ -25,7 +25,7 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="title">Title</label>
+            <label for="title">标题</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("title", "size" => 30)) ?>
@@ -33,7 +33,7 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="author">Author</label>
+            <label for="author">作者</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("author", "size" => 30)) ?>
@@ -41,7 +41,7 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="origin">Origin</label>
+            <label for="origin">来源</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("origin", "size" => 30)) ?>
@@ -49,7 +49,7 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="keywords">Keywords</label>
+            <label for="keywords">关键词</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("keywords", "size" => 30)) ?>
@@ -57,10 +57,10 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="content">Content</label>
+            <label for="content">内容</label>
         </td>
         <td align="left">
-                <?php echo $this->tag->textArea(array("content", "cols" => 30, "rows" => 4)) ?>
+                <?php echo $this->tag->textArea(array("content", "cols" => 80, "rows" => 15)) ?>
         </td>
     </tr>
 

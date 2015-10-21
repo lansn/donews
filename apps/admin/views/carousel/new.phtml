@@ -11,48 +11,48 @@
 <?php echo $this->getContent(); ?>
 
 <div align="center">
-    <h1>Create carousel</h1>
+    <h1>Create Carousel</h1>
 </div>
 
-<table>
+<table class="table">
     <tr>
         <td align="right">
-            <label for="title">Title</label>
+            <label for="title">标题</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->textField(array("title", "size" => 30)) ?>
+            <?php echo $this->tag->textField(array("title", "size" => 60)) ?>
         </td>
     </tr>
     <tr>
         <td align="right">
-            <label for="url">Url</label>
+            <label for="url">链接</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->textField(array("url", "size" => 30)) ?>
+            <?php echo $this->tag->textField(array("url", "size" => 60)) ?>
         </td>
     </tr>
     <tr>
         <td align="right">
-            <label for="image">Image</label>
+            <label for="image">图片地址</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->textField(array("image", "size" => 30)) ?>
+            <?php echo $this->tag->textField(array("image", "size" => 60)) ?>
         </td>
     </tr>
     <tr>
         <td align="right">
-            <label for="description">Description</label>
+            <label for="description">描述</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->textField(array("description", "size" => 30)) ?>
+            <?php echo $this->tag->textField(array("description", "size" => 60)) ?>
         </td>
     </tr>
     <tr>
         <td align="right">
-            <label for="active">Active</label>
+            <label for="active">状态</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->select(array("active",  array("0" => "开启", "1" => "关闭"))) ?>
+            <?php echo $this->tag->select(array("active",  array("0" => "开启", "1" => "不开启"))) ?>
         </td>
     </tr>
 

@@ -7,7 +7,48 @@
                 <div class="content">
                     <?= $article->content ?>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            <i class="glyphicon glyphicon-triangle-left"></i>
+                            <?php if ($prev): ?>
+                                <?= $this->tag->linkTo(array('article/get/'.$prev->id, $prev->title)) ?>
+                            <?php else: ?>
+                                已经是第一篇
+                            <?php endif ?>   
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-right">
+                            <?php if ($next): ?>
+                                <?= $this->tag->linkTo(array('article/get/'.$next->id, $next->title)) ?>
+                            <?php else: ?>
+                                已经是最后一篇
+                            <?php endif ?>
+                            <i class="glyphicon glyphicon-triangle-right"></i>
+                        </p>
+                    </div>
+                </div>
+
                 <div class="comment">
+
+                <?php echo $this->getContent(); ?>
+
+                <?php echo $this->tag->form("article/comment") ?>
+                    <p>
+                        <?php echo $this->tag->hiddenField("id") ?>
+                        <?php echo $this->tag->textField(array("author", "size" => 22)) ?>
+                        <label for="author"><small>评论者 (必填)</small></label>
+                    </p>
+                    <p>
+                        <?php echo $this->tag->textArea(array("content", "cols" => 58, "rows" => 10)) ?>
+                    </p>
+                    <p>
+                        <?php echo $this->tag->submitButton(array("发表评论", "class" => "btn btn-success")) ?>
+                    </p>
+                </form>
+
                 <?php foreach ($comment as $val): ?>
                     <div class="media">
                         <div class="media-left">
@@ -16,7 +57,7 @@
                             </a>
                         </div>
                         <div class="media-body">
-                            <h4 class="media-heading"><?=$val->author?></h4>
+                            <h4 class="media-heading"><?=$val->author?><span class="comment-date"><?=$val->datetime?></span></h4>
                             <?=$val->content?>
                         </div>
                     </div>                    

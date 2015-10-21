@@ -8,13 +8,13 @@
 <?php echo $this->tag->form(array("admin/carousel/search", "autocomplete" => "off")) ?>
 
 <div align="center">
-    <h1>Search carousel</h1>
+    <h1>Search Carousel</h1>
 </div>
 
-<table>
+<table class="table">
     <tr>
         <td align="right">
-            <label for="id">Id</label>
+            <label for="id">ID</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("id", "type" => "number")) ?>
@@ -22,39 +22,39 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="title">Title</label>
+            <label for="title">标题</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->textField(array("title", "size" => 30)) ?>
+            <?php echo $this->tag->textField(array("title", "size" => 60)) ?>
         </td>
     </tr>
     <tr>
         <td align="right">
-            <label for="url">Url</label>
+            <label for="url">链接</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->textField(array("url", "size" => 30)) ?>
+            <?php echo $this->tag->textField(array("url", "size" => 60)) ?>
         </td>
     </tr>
     <tr>
         <td align="right">
-            <label for="image">Image</label>
+            <label for="image">图片</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->textField(array("image", "size" => 30)) ?>
+            <?php echo $this->tag->textField(array("image", "size" => 60)) ?>
         </td>
     </tr>
     <tr>
         <td align="right">
-            <label for="description">Description</label>
+            <label for="description">描述</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->textField(array("description", "size" => 30)) ?>
+            <?php echo $this->tag->textField(array("description", "size" => 60)) ?>
         </td>
     </tr>
     <tr>
         <td align="right">
-            <label for="active">Active</label>
+            <label for="active">状态</label>
         </td>
         <td align="left">
             <?php echo $this->tag->select(array("active",  array("0" => "开启", "1" => "关闭"))) ?>

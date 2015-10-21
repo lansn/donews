@@ -8,13 +8,13 @@
 <?php echo $this->tag->form(array("admin/classis/search", "autocomplete" => "off")) ?>
 
 <div align="center">
-    <h1>Search classis</h1>
+    <h1>Search Classis</h1>
 </div>
 
-<table>
+<table class="table">
     <tr>
         <td align="right">
-            <label for="id">Id</label>
+            <label for="id">ID</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("id", "type" => "number")) ?>
@@ -22,7 +22,7 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="name">Name</label>
+            <label for="name">栏目名称</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("name", "size" => 30)) ?>
@@ -30,7 +30,7 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="keywords">Keywords</label>
+            <label for="keywords">关键词</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("keywords", "size" => 30)) ?>
@@ -38,7 +38,7 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="description">Description</label>
+            <label for="description">描述</label>
         </td>
         <td align="left">
             <?php echo $this->tag->textField(array("description", "size" => 30)) ?>
@@ -46,10 +46,10 @@
     </tr>
     <tr>
         <td align="right">
-            <label for="sort">Sort</label>
+            <label for="sort">排序</label>
         </td>
         <td align="left">
-            <?php echo $this->tag->textField(array("sort", "type" => "number")) ?>
+            <?php echo $this->tag->textField(array("sort")) ?>
         </td>
     </tr>
 

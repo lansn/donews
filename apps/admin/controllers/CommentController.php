@@ -230,7 +230,7 @@ class CommentController extends ControllerBase
 
         return $this->dispatcher->forward(array(
             "controller" => "comment",
-            "action" => "index"
+            "action" => "search"
         ));
     }
 

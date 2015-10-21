@@ -11,7 +11,7 @@ class IndexController extends ControllerBase
     {
         $numberPage = 1;
 
-        $article = \News\Admin\Models\Article::find();
+        $article = \News\Admin\Models\Article::find(array('order' => 'id desc'));
         if (count($article) == 0) {
             $this->flash->notice("The search did not find any article");
 

@@ -16,6 +16,8 @@ class ControllerBase extends Controller
 
         // 设置标题
         $this->tag->setTitle($app->name);
+        $this->view->keywords = $app->keywords;
+        $this->view->description = $app->description;
 
         // 获取导航菜单
         $this->view->navigate = \News\Admin\Models\Classis::find(array('order' => 'sort asc'));

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2015 年 10 月 19 日 08:53
+-- 生成日期: 2015 年 10 月 21 日 04:37
 -- 服务器版本: 5.6.12-log
 -- PHP 版本: 5.4.16
 
@@ -43,9 +43,9 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`id`, `user_name`, `name`, `password`, `email`, `group`) VALUES
-(1, 'admin', 'admin7700992222', '63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1', '173654757@qq.com', 0),
+(1, 'admin', 'admin', '63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1', '173654757@qq.com', 0),
 (2, 'xadmin', 'xadmin', '63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1', 'xadmin@122.com', 1),
-(3, 'blues', 'lansn-lan', '1234', 'lansn-lan@uecsh.com', 0);
+(3, 'blues', 'lansn', '1234', 'lansn104@qq.com', 0);
 
 -- --------------------------------------------------------
 
@@ -99,10 +99,10 @@ CREATE TABLE IF NOT EXISTS `article` (
 --
 
 INSERT INTO `article` (`id`, `uid`, `cid`, `title`, `author`, `origin`, `keywords`, `content`, `datetime`) VALUES
-(1, 2, 2, 'ddd方芳芳0011ddd方芳芳0011ddd方芳芳0011', '的订单', '顶顶顶顶', '的顶顶顶顶顶', '嘎嘎嘎个大概', '2015-10-15 05:40:41'),
-(2, 2, 1, '戴尔XPS 13极致轻薄本：看外观就知道是高级货', 'ddd', 'ggg', '', 'gdgdg', '2015-10-15 07:43:18'),
-(3, 1, 2, 'GE Bright Stik LED将是市场上一个实力超强的00', '的订单', '顶顶顶顶', 'dddddccc000', 'tr发反反复复', '2015-10-16 08:23:37'),
-(4, 1, 1, '三温三控 经典简约外观 超低能耗 超静音 变温', 'ddd', '顶顶顶顶', 'yyyyyyyyyy', '顶顶顶顶顶顶顶顶嘎嘎嘎<img src="http://i.guancha.cn/news/2015/10/18/20151018093740194.jpg" alt="习主席访英前夕刘大使再战英国记者 一个个套化解得神赞！">', '2015-10-19 03:17:33');
+(1, 2, 2, 'ddd方芳芳0011ddd方芳芳0011ddd方芳芳0011', '的订单', '顶顶顶顶', '的顶顶顶顶顶', '嘎嘎嘎个大概<div><img src="http://i.guancha.cn/news/2015/10/21/20151021091709281.jpg" alt="英外相反驳“轰炸式对华示爱，史无前例地叩头”"><br></div>', '2015-10-21 03:36:29'),
+(2, 2, 1, '戴尔XPS 13极致轻薄本：看外观就知道是高级货', 'ddd', 'ggg', '', 'gdgdg<div><img src="http://i.guancha.cn/news/2015/10/21/20151021101348140.jpg" alt="习近平与英国工党新党魁会面"><br></div>', '2015-10-21 03:36:04'),
+(3, 1, 2, 'GE Bright Stik LED将是市场上一个实力超强的00', '的订单', '顶顶顶顶', 'dddddccc000', 'tr发反反复复<div style="text-align: center;"><img src="http://i.guancha.cn/news/2015/10/21/20151021110304402.jpg" alt="斯里兰卡财长：恳请中国抛去不快 帮助我们"><br></div>', '2015-10-21 03:38:31'),
+(4, 1, 1, '三温三控 经典简约外观 超低能耗 超静音 变温', 'ddd', '顶顶顶顶', 'yyyyyyyyyy', '顶顶顶顶顶顶顶顶嘎嘎嘎<div><img src="http://i.guancha.cn/news/2015/10/18/20151018093740194.jpg" alt="习主席访英前夕刘大使再战英国记者 一个个套化解得神赞！"></div>', '2015-10-21 03:04:15');
 
 -- --------------------------------------------------------
 
@@ -166,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `datetime` datetime NOT NULL,
   `status` int(1) NOT NULL DEFAULT '1' COMMENT '0已审核 1未审核',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- 转存表中的数据 `comment`
@@ -174,7 +174,15 @@ CREATE TABLE IF NOT EXISTS `comment` (
 
 INSERT INTO `comment` (`id`, `aid`, `author`, `content`, `datetime`, `status`) VALUES
 (1, 1, '烦烦烦', '功高盖世规定和供货商和欢呼声', '2015-10-15 05:11:12', 1),
-(2, 1, '呃呃呃', '工单嘎嘎嘎嘎嘎', '2015-10-14 05:15:22', 0);
+(2, 1, '呃呃呃', '工单嘎嘎嘎嘎嘎', '2015-10-14 05:15:22', 0),
+(3, 1, '的订单', '得到的嘎嘎嘎', '2015-10-20 08:11:20', 0),
+(4, 1, 'ddd', '和UI和i', '2015-10-20 08:12:28', 1),
+(5, 1, '大动干戈', '工单等待嘎大多数', '2015-10-20 08:14:19', 1),
+(6, 1, '大动干戈', '工单等待嘎大多数', '2015-10-20 08:16:52', 1),
+(7, 1, '大动干戈', '工单等待嘎大多数', '2015-10-20 08:17:10', 1),
+(8, 1, '也一样', '而让人', '2015-10-20 08:18:20', 0),
+(9, 1, 'ddd嘎嘎嘎', '工单工地施工队灌灌灌灌', '2015-10-20 08:19:58', 0),
+(10, 1, '大动干戈', '豚蹄穰田认同', '2015-10-20 08:20:35', 0);
 
 -- --------------------------------------------------------
 
@@ -196,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `friendly_link` (
 --
 
 INSERT INTO `friendly_link` (`id`, `name`, `url`, `description`, `status`) VALUES
-(1, '淘测网', 'http://t107.temp.ly200.net/download', '淡淡的', 0),
+(1, '淘测网', 'http://www.795021.com', '淘宝购物体验评测', 0),
 (2, '新浪网', 'sina.com', 'dddd', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
